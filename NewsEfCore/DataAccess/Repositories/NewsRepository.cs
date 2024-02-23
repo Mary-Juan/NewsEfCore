@@ -81,20 +81,16 @@ namespace NewsEfCore.DataAccess.Repositories
             return GetById(newNews.Id);
         }
 
-        public bool UpdateNews(UpdateNewsViewModel news)
+     
+
+        public void Update(UpdateNewsViewModel news)
         {
             var update = _db.News.Find(news.Id);
-
-            if (update == null)
-                return false;
-
             update.Title = news.Title;
             update.ShortDescription = news.ShortDescription;
             update.Body = news.Body;
             update.ImageName = news.ImageName;
             update.CategoryId = news.CategoryId;
-            return true;
-
         }
     }
 }

@@ -8,8 +8,7 @@ namespace NewsEfCore.ViewModels
         public string Body { get; set; }
         public int WriterId { get; set; }
         public string ShortDescription { get; set; }
-        public IFormFile Image { get; set; }
-        public string ImageName { get; set; }
+        public string ImageName { get; set; } = "0.png";
         public int CategoryId { get; set; }
     }
 }

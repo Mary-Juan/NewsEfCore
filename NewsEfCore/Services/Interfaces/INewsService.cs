@@ -1,15 +1,13 @@
-﻿using NewsEfCore.DataAccess.Entities;
-using NewsEfCore.ViewModels;
+﻿using NewsEfCore.ViewModels;
 
-namespace NewsEfCore.DataAccess.Repositories.Interfaces
+namespace NewsEfCore.Services.Interfaces
 {
-    public interface INewsRepository
+    public interface INewsService
     {
         public List<NewsViewModel> GetAll();
         public NewsDetailViewModel GetById(int id);
-        public void Update(UpdateNewsViewModel news);
+        public bool Update(UpdateNewsViewModel news);
         public bool Delete(int id);
         public NewsDetailViewModel Insert(InsertNewsViewModel news);
-
     }
 }

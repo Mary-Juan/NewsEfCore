@@ -71,5 +71,15 @@ namespace NewsEfCore.DataAccess.Repositories
 
             return GetById(user.Id);
         }
+
+        public bool Login(LoginUserViewModel login)
+        {
+            var user = _db.Users.FirstOrDefault(u => u.UserName == login.UserName && u.Password == login.Password);
+
+            if (user == null)
+                return false;
+
+            return true;
+        }
     }
 }
