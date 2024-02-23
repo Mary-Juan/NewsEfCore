@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NewsEfCore.DataAccess.Contexts;
+using NewsEfCore.DataAccess.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,12 @@ builder.Services.AddDbContext<NewsContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("NewsDbConnectionString"));
 });
+
+#endregion
+
+#region IOC
+
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 #endregion
 

@@ -2,6 +2,11 @@
 {
     public class User
     {
+        public User()
+        {
+            News = new List<News>();
+        }
+
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Bio { get; set; }

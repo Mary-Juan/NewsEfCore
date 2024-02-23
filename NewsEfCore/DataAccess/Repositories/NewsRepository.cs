@@ -20,7 +20,6 @@ namespace NewsEfCore.DataAccess.Repositories
             if (user != null)
             {
                 _db.Remove(user);
-                _db.SaveChanges();
                 return true;
             }
 
@@ -36,13 +35,8 @@ namespace NewsEfCore.DataAccess.Repositories
                  Title = n.Title,
                  ShortDescription = n.ShortDescription,
                  Image = n.ImageName,
-                 Category = new CategoryViewModel()
-                 {
-                     Id = n.CategoryId,
-                     Title = n.Category.Title
-                 }
-             }
-             ).ToList();
+                 CategoryId = n.CategoryId
+             }).ToList();
         }
 
         public NewsDetailViewModel GetById(int id)
@@ -99,7 +93,6 @@ namespace NewsEfCore.DataAccess.Repositories
             update.Body = news.Body;
             update.ImageName = news.ImageName;
             update.CategoryId = news.CategoryId;
-            _db.SaveChanges();
             return true;
 
         }

@@ -2,6 +2,12 @@
 {
     public class Category
     {
+
+        public Category()
+        {
+            News = new List<News>();
+        }
+
         public int Id { get; set; }
         public string Title { get; set; }
 
