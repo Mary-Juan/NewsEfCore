@@ -1,0 +1,11 @@
+﻿namespace NewsEfCore.ViewModels
+{
+    public class NewsViewModel
+    {
+
+        public string Title { get; set; }
+        public string ShortDescription { get; set; }
+        public string Image { get; set; }
+        public CategoryViewModel Category { get; set; }
+    }
+}
