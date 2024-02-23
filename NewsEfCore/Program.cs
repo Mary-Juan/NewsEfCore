@@ -1,7 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using NewsEfCore.DataAccess.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+#region DbContext
+
+builder.Services.AddDbContext<NewsContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("NewsDbConnectionString"));
+});
+
+#endregion
+
 
 var app = builder.Build();
 

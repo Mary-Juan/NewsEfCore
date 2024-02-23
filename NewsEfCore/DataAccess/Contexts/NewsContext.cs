@@ -1,7 +1,14 @@
-﻿namespace NewsEfCore.DataAccess.Contexts
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace NewsEfCore.DataAccess.Contexts
 {
-    public class NewsContext 
+    public class NewsContext : DbContext
     {
+        public NewsContext(DbContextOptions<NewsContext> options) :base(options)
+        {
+            
+        }
+
 
     }
 }
