@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NewsEfCore.DataAccess.Contexts.Configs;
+using NewsEfCore.DataAccess.Entities;
 
 namespace NewsEfCore.DataAccess.Contexts
 {
@@ -9,6 +11,15 @@ namespace NewsEfCore.DataAccess.Contexts
             
         }
 
+        public DbSet<News> News { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new NewsConfig());
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
