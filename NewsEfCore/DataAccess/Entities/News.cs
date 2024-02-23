@@ -10,9 +10,11 @@
         public string ImageName { get; set; }
         public int CategoryId { get; set; }
 
+
         #region navigation Propety
 
-        
+        public Category Category { get; set; }
+        public User Witer { get; set; }
 
         #endregion
     }
