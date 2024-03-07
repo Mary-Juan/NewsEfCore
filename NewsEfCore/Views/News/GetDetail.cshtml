@@ -1,0 +1,16 @@
+﻿@using NewsEfCore.ViewModels
+@model NewsDetailViewModel
+
+
+<div class="card mb-3">
+    <img src="~/Images/NewsImgs/@Model.Image" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Body</p>
+<hr />
+<a href="">نویسنده : @Model.Writer.UserName</a>
+<hr />
+<p>زمان ثبت : @Model.RegisterDate</p>
+        <p class="card-text"><small class="text-body-secondary">View</small></p>
+    </div>
+</div>

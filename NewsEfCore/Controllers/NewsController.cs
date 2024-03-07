@@ -19,6 +19,11 @@ namespace NewsEfCore.Controllers
             ViewBag.Category = _categoryService.GetById(id).Title;
             return View(_newsService.GetByCategory(id));
         }
+
+        public IActionResult GetDetail(int id)
+        {
+            return View(_newsService.GetById(id));
+        }
        
     }
 }

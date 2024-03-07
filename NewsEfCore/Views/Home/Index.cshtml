@@ -7,7 +7,7 @@
 
 @foreach (var category in ViewBag.Categories@*  as List<CategoryViewModel> *@)
 {
-    <a class="btn btn-primary" href="#" role="button">@category.Title</a>
+    <a class="btn btn-primary" asp-controller="News" asp-action="GetByCategory" asp-route-id ="@category.Id" role="button">@category.Title</a>
 }
 
 @foreach(var news in Model)
@@ -17,7 +17,7 @@
         <div class="card-body">
             <h5 class="card-title">@news.Title</h5>
             <p class="card-text">@news.ShortDescription</p>
-            <a href="#" class="btn btn-primary">Detail</a>
+            <a asp-controller="News" asp-action="GetDetail" asp-route-id ="@news.Id" class="btn btn-primary">Detail</a>
         </div>
     </div>
 }
