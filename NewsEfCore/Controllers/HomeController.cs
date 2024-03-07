@@ -9,15 +9,19 @@ namespace NewsEfCore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly INewsService _newsService;
+        private readonly ICategoryService _categoryService;
 
-        public HomeController(ILogger<HomeController> logger, INewsService newsService)
+
+        public HomeController(ILogger<HomeController> logger, INewsService newsService, ICategoryService categoryService)
         {
             _logger = logger;
             _newsService = newsService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
         {
+            ViewBag.Categories = _categoryService.GetAll();
             return View(_newsService.GetByCategory(1));
         }
 

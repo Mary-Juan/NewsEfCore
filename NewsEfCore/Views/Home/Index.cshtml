@@ -1,8 +1,23 @@
-﻿@{
+﻿@using NewsEfCore.ViewModels;
+@model List<NewsViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach (var category in ViewBag.Categories@*  as List<CategoryViewModel> *@)
+{
+    <a class="btn btn-primary" href="#" role="button">@category.Title</a>
+}
+
+@foreach(var news in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="~/Images/NewsImgs/@news.Image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@news.Title</h5>
+            <p class="card-text">@news.ShortDescription</p>
+            <a href="#" class="btn btn-primary">Detail</a>
+        </div>
+    </div>
+}

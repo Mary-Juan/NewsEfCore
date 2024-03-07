@@ -27,6 +27,7 @@ builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<IUserRpository, UserRpository>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<INewsService, NewsService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 #endregion
 
