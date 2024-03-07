@@ -1,5 +1,4 @@
 ﻿using NewsEfCore.DataAccess.Repositories.Interfaces;
-using NewsEfCore.DataAccess.UnitOfWork;
 using NewsEfCore.Services.Interfaces;
 using NewsEfCore.ViewModels;
 
@@ -8,18 +7,15 @@ namespace NewsEfCore.Services
     public class NewsService : INewsService
     {
         private readonly INewsRepository _newsRepository;
-        private readonly UnitOfWork _unitOfWork;
 
-        public NewsService(INewsRepository newsRepository, UnitOfWork unitOfWork)
+        public NewsService(INewsRepository newsRepository)
         {
             _newsRepository = newsRepository;
-            _unitOfWork = unitOfWork;
         }
 
         public bool Delete( int id)
         {
             _newsRepository.Delete(id);
-            _unitOfWork.SaveChanges();
             return true;
         }
 
@@ -42,7 +38,6 @@ namespace NewsEfCore.Services
         public NewsDetailViewModel Insert(InsertNewsViewModel news)
         {
             var insertedNews = _newsRepository.Insert(news);
-            _unitOfWork.SaveChanges();
             return insertedNews;
         }
 
@@ -72,7 +67,6 @@ namespace NewsEfCore.Services
             }
 
             _newsRepository.Update(news);
-            _unitOfWork.SaveChanges();
             return true;
         }
     }

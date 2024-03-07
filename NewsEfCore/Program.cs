@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using NewsEfCore.DataAccess.Contexts;
 using NewsEfCore.DataAccess.Repositories;
 using NewsEfCore.DataAccess.Repositories.Interfaces;
-using NewsEfCore.DataAccess.UnitOfWork;
 using NewsEfCore.Services;
 using NewsEfCore.Services.Interfaces;
 
@@ -23,7 +22,6 @@ builder.Services.AddDbContext<NewsContext>(options =>
 
 #region IOC
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<IUserRpository, UserRpository>();

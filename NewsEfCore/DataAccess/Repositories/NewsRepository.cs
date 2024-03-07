@@ -21,6 +21,7 @@ namespace NewsEfCore.DataAccess.Repositories
             if (user != null)
             {
                 _db.Remove(user);
+                _db.SaveChanges();
                 return true;
             }
 
@@ -106,6 +107,7 @@ namespace NewsEfCore.DataAccess.Repositories
             update.Body = news.Body;
             update.ImageName = news.ImageName;
             update.CategoryId = news.CategoryId;
+            _db.SaveChanges();
         }
     }
 }

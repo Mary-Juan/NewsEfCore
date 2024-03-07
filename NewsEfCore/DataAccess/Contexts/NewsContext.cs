@@ -18,6 +18,7 @@ namespace NewsEfCore.DataAccess.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new NewsConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
 
             base.OnModelCreating(modelBuilder);
         }

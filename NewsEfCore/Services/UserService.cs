@@ -1,5 +1,4 @@
 ﻿using NewsEfCore.DataAccess.Repositories.Interfaces;
-using NewsEfCore.DataAccess.UnitOfWork;
 using NewsEfCore.Services.Interfaces;
 using NewsEfCore.Utilities;
 using NewsEfCore.ViewModels;
