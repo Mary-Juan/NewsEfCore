@@ -1,0 +1,20 @@
+﻿@using NewsEfCore.ViewModels;
+@model List<NewsViewModel>
+
+@{
+    ViewData["Title"] = "New's Category";
+}
+
+<h1>@ViewBag.Category</h1>
+
+@foreach (var news in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="~/Images/NewsImgs/@news.Image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@news.Title</h5>
+            <p class="card-text">@news.ShortDescription</p>
+            <a href="#" class="btn btn-primary">Detail</a>
+        </div>
+    </div>
+}
