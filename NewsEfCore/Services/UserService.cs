@@ -8,12 +8,12 @@ namespace NewsEfCore.Services
 {
     public class UserService : IUserService
     {
-        private readonly UnitOfWork _unitOfWork;
+        //private readonly UnitOfWork _unitOfWork;
         private readonly IUserRpository _userRpository;
 
-        public UserService(UnitOfWork unitOfWork, IUserRpository userRpository)
+        public UserService(/*UnitOfWork unitOfWork,*/ IUserRpository userRpository)
         {
-            _unitOfWork = unitOfWork;
+            //_unitOfWork = unitOfWork;
             _userRpository = userRpository;
 
         }

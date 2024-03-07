@@ -14,7 +14,7 @@
 
         #region navigation Propety
 
-        public List<News> News { get; set; }
+        public virtual List<News> News { get; set; }
 
         #endregion
     }

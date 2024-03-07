@@ -1,4 +1,5 @@
-﻿using NewsEfCore.DataAccess.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using NewsEfCore.DataAccess.Contexts;
 using NewsEfCore.DataAccess.Entities;
 using NewsEfCore.DataAccess.Repositories.Interfaces;
 using NewsEfCore.ViewModels;
@@ -28,7 +29,7 @@ namespace NewsEfCore.DataAccess.Repositories
 
         public List<NewsViewModel> GetAll()
         {
-            return _db.News.Select(n =>
+            return _db.News.AsNoTracking().Select(n =>
              new NewsViewModel()
              {
                  Id = n.Id,
