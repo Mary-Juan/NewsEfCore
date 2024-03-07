@@ -19,6 +19,7 @@ namespace NewsEfCore.DataAccess.Contexts
         {
             modelBuilder.ApplyConfiguration(new NewsConfig());
             modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new RoleConfig());
 
             base.OnModelCreating(modelBuilder);
         }
