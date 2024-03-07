@@ -10,6 +10,19 @@ namespace NewsEfCore.DataAccess.Contexts.Configs
         {
             builder.HasOne(n => n.Category).WithMany(c => c.News).HasForeignKey(n => n.CategoryId);
             builder.HasOne(n => n.Witer).WithMany(c => c.News).HasForeignKey(n => n.WriterId);
+            builder.HasData(
+                new News
+                {
+                    Id = 1,
+                    Title = "Folan",
+                    Body = " hyjfughgtrdhtrdrtfg",
+                    CategoryId = 1,
+                    RegisterDate = DateTime.Now,
+                    ShortDescription = "htrdt",
+                    WriterId = 1,
+                    ImageName = "0.png"
+                }
+                );
         }
     }
 }
