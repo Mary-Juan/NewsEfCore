@@ -29,7 +29,7 @@ namespace NewsEfCore.DataAccess.Repositories
 
         public List<NewsViewModel> GetAll()
         {
-            return _db.News.AsNoTracking().Select(n =>
+            return _db.News.Select(n =>
              new NewsViewModel()
              {
                  Id = n.Id,
@@ -38,6 +38,20 @@ namespace NewsEfCore.DataAccess.Repositories
                  Image = n.ImageName,
                  CategoryId = n.CategoryId
              }).ToList();
+        }
+
+        public List<NewsViewModel> GetByCategory(int categoryId)
+        {
+            return _db.News.Where(n => n.CategoryId == categoryId).Select(n => 
+            new NewsViewModel
+            {
+                CategoryId = n.CategoryId,
+                Id = n.Id,
+                Image = n.ImageName,
+                ShortDescription = n.ShortDescription,
+                Title = n.Title
+            }
+            ).ToList();
         }
 
         public NewsDetailViewModel GetById(int id)

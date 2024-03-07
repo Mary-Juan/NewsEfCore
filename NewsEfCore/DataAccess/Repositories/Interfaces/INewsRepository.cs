@@ -10,6 +10,7 @@ namespace NewsEfCore.DataAccess.Repositories.Interfaces
         public void Update(UpdateNewsViewModel news);
         public bool Delete(int id);
         public NewsDetailViewModel Insert(InsertNewsViewModel news);
+        public List<NewsViewModel> GetByCategory(int categoryId);
 
     }
 }

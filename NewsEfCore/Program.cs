@@ -23,11 +23,12 @@ builder.Services.AddDbContext<NewsContext>(options =>
 
 #region IOC
 
-//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<IUserRpository, UserRpository>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<INewsService, NewsService>();
 
 #endregion
 

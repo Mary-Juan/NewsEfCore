@@ -4,7 +4,7 @@ using NewsEfCore.DataAccess.Repositories.Interfaces;
 
 namespace NewsEfCore.DataAccess.UnitOfWork
 {
-    public class UnitOfWork 
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly NewsContext _db;
 

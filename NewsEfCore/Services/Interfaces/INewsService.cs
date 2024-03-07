@@ -9,5 +9,6 @@ namespace NewsEfCore.Services.Interfaces
         public bool Update(UpdateNewsViewModel news);
         public bool Delete(int id);
         public NewsDetailViewModel Insert(InsertNewsViewModel news);
+        public List<NewsViewModel> GetByCategory(int categoryId);
     }
 }

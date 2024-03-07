@@ -8,18 +8,18 @@ namespace NewsEfCore.Services
     public class NewsService : INewsService
     {
         private readonly INewsRepository _newsRepository;
-        //private readonly UnitOfWork _unitOfWork;
+        private readonly UnitOfWork _unitOfWork;
 
-        public NewsService(INewsRepository newsRepository/*, UnitOfWork unitOfWork*/)
+        public NewsService(INewsRepository newsRepository, UnitOfWork unitOfWork)
         {
             _newsRepository = newsRepository;
-            //_unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public bool Delete( int id)
         {
             _newsRepository.Delete(id);
-            //_unitOfWork.SaveChanges();
+            _unitOfWork.SaveChanges();
             return true;
         }
 
@@ -27,6 +27,11 @@ namespace NewsEfCore.Services
         public List<NewsViewModel> GetAll()
         {
             return _newsRepository.GetAll();
+        }
+
+        public List<NewsViewModel> GetByCategory(int categoryId)
+        {
+          return  _newsRepository.GetByCategory(categoryId);
         }
 
         public NewsDetailViewModel GetById(int id)
@@ -37,7 +42,7 @@ namespace NewsEfCore.Services
         public NewsDetailViewModel Insert(InsertNewsViewModel news)
         {
             var insertedNews = _newsRepository.Insert(news);
-            //_unitOfWork.SaveChanges();
+            _unitOfWork.SaveChanges();
             return insertedNews;
         }
 
@@ -67,7 +72,7 @@ namespace NewsEfCore.Services
             }
 
             _newsRepository.Update(news);
-            //_unitOfWork.SaveChanges();
+            _unitOfWork.SaveChanges();
             return true;
         }
     }
